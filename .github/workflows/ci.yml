@@ -1,3 +1,4 @@
+---
 name: CI Pipeline
 
 on:
@@ -58,3 +59,20 @@ jobs:
         run: |
           cd frontend
           npm run build
+
+
+  docker-build:
+    name: Docker Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build backend image
+        run: |
+          docker build -t backend-test ./backend
+
+      - name: Build frontend image
+        run: |
+          docker build -t frontend-test ./frontend
