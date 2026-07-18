@@ -93,4 +93,5 @@ jobs:
 
       - name: Push frontend image
         run: |  
-          docker push dixandry/projet-devops-frontend:latest
+          docker push dixandry/projet-devops-frontend:latest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
+
