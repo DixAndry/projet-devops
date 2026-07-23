@@ -88,7 +88,7 @@ function App() {
     <main className="app-shell">
       <section className="panel">
         <h1>Gestion des tâches</h1>
-        <p>Cette interface communique avec votre API FastAPI sur le port 8000.</p>
+        <p>CModification dans l'interface pour le test</p>
 
         <form onSubmit={handleSubmit} className="task-form">
           <input
