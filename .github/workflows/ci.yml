@@ -96,4 +96,17 @@ jobs:
       - name: Push frontend image
         run: |  
           docker push dixandry/projet-devops-frontend:latest
+  
 
+  deploy:
+      name: Deploy to Debian
+      runs-on: self-hosted
+      needs: docker-build
+
+      steps:
+         - name: Deploy application
+           run: |
+            cd /home/dix/Documents/newproject
+            docker compose --env-file .env.prod -f docker-compose.prod.yml pull
+            docker compose --env-file .env.prod -f docker-compose.prod.yml up -d --remove-orphans
+            docker image prune -f
