@@ -78,14 +78,16 @@ jobs:
       - name: Build backend image
         run: |
           docker build \
-            -t dixandry/projet-devops-backend:latest \
-            ./backend
+          -f backend/Dockerfile.prod \
+          -t dixandry/projet-devops-backend:latest \
+          ./backend
 
       - name: Build frontend image
         run: |
           docker build \
-            -t dixandry/projet-devops-frontend:latest \
-            ./frontend
+          -f frontend/Dockerfile.prod \
+          -t dixandry/projet-devops-frontend:latest \
+          ./frontend
 
       - name: Push backend image
         run: |
